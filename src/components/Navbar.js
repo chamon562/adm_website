@@ -20,6 +20,7 @@ const NavLink = css`
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
+    text-decoration: none;
 `
 
 const Logo = styled(Link)`
@@ -33,11 +34,13 @@ const MenuBars = styled.i`
 
 `
 const NavMenu = styled.div`
-
+    display: flex;
+    align-items: center;
+    
 `
 
 const NavMenuLinks = styled(Link)`
-    color: #fff;
+    ${NavLink};
 `
 const Navbar = () => {
     return (
