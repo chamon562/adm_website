@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components/macro';
-
+import sliderData from '../data/SliderData'
 const HeroSection = styled.section`
     height: 100vh;
     max-height: 1100px;
@@ -17,12 +17,34 @@ const HeroWrapper = styled.div`
     overflow: hidden;
     position: relative; 
 `
+const HeroSlide = styled.div`
+
+`
+const HeroSlider = styled.div`
+
+`
+const HeroImage = styled.div`
+
+`
+const HeroContent = styled.div`
+
+`
 
 const Hero = () => {
     return (
         <HeroSection>
             <HeroWrapper>
-            <h1>Hero Section</h1>
+                {sliderData.map((slide, index) => (
+                    <HeroSlide key={index}>
+                        {/* this is where to showcase content */}
+                        <HeroSLider>
+                            <HeroImage />
+                                <HeroContent>
+                                    <h1>{slide.title}</h1>
+                                </HeroContent>
+                        </HeroSLider>
+                    </HeroSlide>
+                ))}
             </HeroWrapper>
         </HeroSection>
     )
