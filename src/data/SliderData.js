@@ -1,10 +1,10 @@
 // this is where will have all the data for slider to be exported for us
-import ImageOne from '../images/ImageOne.jpg'
-import ImageTwo from '../images/ImageTwo.jpg'
-import ImageThree from '../images/ImageThree.jpg'
-import ImageFour from '../images/ImageFour.jpg'
+import ImageOne from '../images/ImageOne.jpeg'
+import ImageTwo from '../images/ImageTwo.png'
+import ImageThree from '../images/ImageThree.jpeg'
+import ImageFour from '../images/ImageFour.jpeg'
 
-export const sliderData = [
+export const SliderData = [
     {
 
         title: 'This Person Name, Or This event here',

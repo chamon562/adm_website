@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import { SliderData } from './data/SliderData';
 import GlobalStyle from './globalStyles';
 
 
@@ -9,7 +10,8 @@ function App() {
     <>
       <GlobalStyle />
       <Navbar />
-      <Hero />
+      {/* telling hero what slides is because its undefined, pass in as props */}
+      <Hero slides= {SliderData}/>
     </>
   );
 }

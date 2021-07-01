@@ -1,6 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components/macro';
-import sliderData from '../data/SliderData'
+import { Button } from './Button';
+import { IoMdArrowRoundForward } from 'react-icons/io';
+import { IoArrowForwardCircleOutline, IoArrowBackCircleOutline } from "react-icons/io5";
+
 const HeroSection = styled.section`
     height: 100vh;
     max-height: 1100px;
@@ -30,21 +33,67 @@ const HeroContent = styled.div`
 
 `
 
-const Hero = () => {
+const Arrow = styled(IoMdArrowRoundForward)`
+`
+
+const SliderButtons = styled.div`
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    z-index: 10;
+`
+
+
+const arrowButtons = css`
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    cursor: pointer;
+    background: #00FFFF;
+    border-radius: 50px;
+    padding: 10px;
+    margin-right: 1rem;
+    user-select: none;
+    transition: 0.3s;
+
+    &:hover{
+        background: #cd853f;
+        transform: scale(1.05);
+    }
+`
+const PreviousArrow = styled(IoArrowBackCircleOutline)`
+    ${arrowButtons}
+`
+
+const NextArrow = styled(IoArrowForwardCircleOutline)`
+    ${arrowButtons}
+`
+
+const Hero = ({ slides }) => {
     return (
         <HeroSection>
             <HeroWrapper>
-                {sliderData.map((slide, index) => (
+                {slides.map((slide, index) => (
                     <HeroSlide key={index}>
                         {/* this is where to showcase content */}
-                        <HeroSLider>
+                        <HeroSlider>
                             <HeroImage />
-                                <HeroContent>
-                                    <h1>{slide.title}</h1>
-                                </HeroContent>
-                        </HeroSLider>
+                            <HeroContent>
+                                <h1>{slide.title}</h1>
+                                <p>{slide.location}</p>
+                                <Button to={slide.path} primary="true" css={`max-width: 100px`}>
+                                    {slide.label}
+                                    <Arrow />
+                                </Button>
+                            </HeroContent>
+                        </HeroSlider>
                     </HeroSlide>
                 ))}
+                <SliderButtons>
+                    <PreviousArrow />
+                    <NextArrow />
+                </SliderButtons>
             </HeroWrapper>
         </HeroSection>
     )
