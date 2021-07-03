@@ -61,7 +61,17 @@ const HeroImage = styled.img`
     object-fit: cover;
 `
 const HeroContent = styled.div`
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    max-width: 1600px;
+    width: calc(100% - 100px);
+    color: #fff;
 
+    h1{
+        font-size: clamp(2rem, 8vw, 5rem);
+    }
 `
 
 const Arrow = styled(IoMdArrowRoundForward)`
