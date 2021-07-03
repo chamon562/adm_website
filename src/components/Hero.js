@@ -21,10 +21,19 @@ const HeroWrapper = styled.div`
     position: relative; 
 `
 const HeroSlide = styled.div`
-
+    z-index: 1;
+    width: 100%;
+    height: 100%;
 `
 const HeroSlider = styled.div`
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 const HeroImage = styled.img`
     border-radius: 20px;
@@ -32,6 +41,7 @@ const HeroImage = styled.img`
     height: 200px;
     box-shadow: 12px 12px 12px grey;
     margin: 10px;
+    position: absolute;
 `
 const HeroContent = styled.div`
 
