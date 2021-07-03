@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import styled, { css } from 'styled-components/macro';
 import { Button } from './Button';
 import { IoMdArrowRoundForward } from 'react-icons/io';
@@ -71,10 +71,23 @@ const HeroContent = styled.div`
 
     h1{
         font-size: clamp(2rem, 8vw, 5rem);
+        /* font-weight makes lettering look thinner */
+        font-weight: 400;
+        /* text-transform: uppercase makes text all capitol */
+        text-transform: upperCase;
+        text-shadow:  0px 0px 20px  rgba(0, 0, 0, 0.4);
+        text-align: left;
+        margin-bottom: 0.8rem;
+    }
+
+    p{
+        margin-bottom: 1.2rem;
+        text-shadow: 0px 0px 20px  rgba(0, 0, 0, 0.4);
     }
 `
 
 const Arrow = styled(IoMdArrowRoundForward)`
+    margin-left: 0.5rem;
 `
 
 const SliderButtons = styled.div`
@@ -112,7 +125,7 @@ const NextArrow = styled(IoArrowForwardCircleOutline)`
 `
 
 const Hero = ({ slides }) => {
-    console.log(slides)
+    // const []
     return (
         <HeroSection>
             <HeroWrapper>
