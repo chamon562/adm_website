@@ -1,8 +1,9 @@
 // this is where will have all the data for slider to be exported for us
-import ImageOne from '../images/ImageOne.jpeg'
-import ImageTwo from '../images/ImageTwo.png'
-import ImageThree from '../images/ImageThree.jpeg'
-import ImageFour from '../images/ImageFour.jpeg'
+import imageEight from '../images/ImageEight900.png';
+import imageTwo from '../images/ImageEight900.png';
+import imageThree from '../images/ImageEight900.png';
+import imageFour from '../images/ImageEight900.png';
+
 
 export const SliderData = [
     {
@@ -12,7 +13,7 @@ export const SliderData = [
         location: '5555 Bloom field',
         path: '/our-team',
         label: 'View',
-        image: ImageOne,
+        image: imageEight,
         alt: 'Event or ...'
     },
     {
@@ -22,7 +23,7 @@ export const SliderData = [
         location: '5555 Bloom field',
         path: '/our-team',
         label: 'View',
-        image: ImageTwo,
+        image: imageTwo,
         alt: 'Event or ...'
     },
     {
@@ -32,17 +33,16 @@ export const SliderData = [
         location: '5555 Bloom field',
         path: '/our-team',
         label: 'View',
-        image: ImageThree,
+        image: imageThree,
         alt: 'Event or ...'
     },
     {
-
         title: 'This Person Name, Or This event here',
         price: '$500,000',
         location: '5555 Bloom field',
         path: '/our-team',
         label: 'View',
-        image: ImageFour,
+        image: imageFour,
         alt: 'Event or ...'
     },
 ]

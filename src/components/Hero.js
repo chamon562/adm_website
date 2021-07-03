@@ -26,8 +26,12 @@ const HeroSlide = styled.div`
 const HeroSlider = styled.div`
 
 `
-const HeroImage = styled.div`
-
+const HeroImage = styled.img`
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    box-shadow: 12px 12px 12px grey;
+    margin: 10px;
 `
 const HeroContent = styled.div`
 
@@ -71,14 +75,16 @@ const NextArrow = styled(IoArrowForwardCircleOutline)`
 `
 
 const Hero = ({ slides }) => {
+    console.log(slides)
     return (
         <HeroSection>
             <HeroWrapper>
                 {slides.map((slide, index) => (
                     <HeroSlide key={index}>
+                        {console.log(slide)}
                         {/* this is where to showcase content */}
                         <HeroSlider>
-                            <HeroImage />
+                            <HeroImage src={slide.image} alt={slide.alt}/>
                             <HeroContent>
                                 <h1>{slide.title}</h1>
                                 <p>{slide.location}</p>
