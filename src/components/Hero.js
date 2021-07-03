@@ -36,12 +36,12 @@ const HeroSlider = styled.div`
     justify-content: center;
 `
 const HeroImage = styled.img`
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    box-shadow: 12px 12px 12px grey;
-    margin: 10px;
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 `
 const HeroContent = styled.div`
 
