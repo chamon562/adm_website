@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Dropdown from './components/Dropdown';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import { SliderData } from './data/SliderData';
@@ -6,12 +7,19 @@ import GlobalStyle from './globalStyles';
 
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // after passing in toggle and is open need to go to NavBar.js and inside MenuBar Tag onClick={toggle} function
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
   return (
     <>
       <GlobalStyle />
-      <Navbar />
+      <Navbar toggle={toggle} />
+      <Dropdown isOpen={isOpen} toggle={toggle} />
       {/* telling hero what slides is because its undefined, pass in as props */}
-      <Hero slides= {SliderData}/>
+      <Hero slides={SliderData} />
     </>
   );
 }

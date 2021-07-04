@@ -1,8 +1,8 @@
 // this is where will have all the data for slider to be exported for us
 import imageEight from '../images/ImageEight900.png';
-import imageTwo from '../images/ImageEight900.png';
-import imageThree from '../images/ImageEight900.png';
-import imageFour from '../images/ImageEight900.png';
+import imageTwo from '../images/ImageTwo.png';
+import imageThree from '../images/ImageThree.jpeg';
+import imageFour from '../images/ImageSeven.jpeg';
 
 
 export const SliderData = [

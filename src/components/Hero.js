@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled, { css } from 'styled-components/macro';
 import { Button } from './Button';
 import { IoMdArrowRoundForward } from 'react-icons/io';
@@ -125,30 +125,78 @@ const NextArrow = styled(IoArrowForwardCircleOutline)`
 `
 
 const Hero = ({ slides }) => {
-    // const []
+    // creating the state and the funciton
+    // the array will be the first value which is the initial state so call it current
+    // and next value is the function that updates the state
+    const [current, setCurrent] = useState(0);
+    // then this looks at the slides the data and check the length short handing it and be able to look at with one variable
+    // so it doesnt go path the total images I have
+    const length = slides.length;
+    const timeout = useRef(null)
+
+    // automated slider to shuffle through images
+    // useEffect(() =>{
+    //     const nextSlide = () =>{
+    //         setCurrent(current =>(current === length -1 ? 0 : current + 1))
+    //     }
+    //     timeout.current = setTimeout(nextSlide, 3000)
+
+    //     return function (){
+    //         if(timeout.current){
+    //             clearTimeout(timeout.current)
+    //         }
+    //     }
+    //     // looking for the current and the length for the dependcies here
+    // }, [current, length])
+
+    const nextSlide = () => {
+        if(timeout.current){
+            clearTimeout(timeout.current)
+        }
+        // what current is its going to look at the current image in the slider 
+        // if the current is strict equal to length -1 then want to return first value in the data
+        // else increment or add to that value with current + 1
+        setCurrent(current === length - 1 ? 0 : current + 1);
+        console.log(current)
+    }
+
+    const previousSlide = () => {
+        if(timeout.current){
+            clearTimeout(timeout.current)
+        }
+        // check current if its equal to 0 then return the of the length - 1 going backwards else turn current - 1
+        setCurrent(current === 0 ? length - 1 : current - 1);
+        console.log(current)
+    }
+
+    if(!Array.isArray(slides) || slides.length <= 0 ){
+        return null
+    }
     return (
         <HeroSection>
             <HeroWrapper>
-                {slides.map((slide, index) => (
-                    <HeroSlide key={index}>
-                        {console.log(slide)}
-                        {/* this is where to showcase content */}
-                        <HeroSlider>
-                            <HeroImage src={slide.image} alt={slide.alt} />
-                            <HeroContent>
-                                <h1>{slide.title}</h1>
-                                <p>{slide.location}</p>
-                                <Button to={slide.path} primary="true" css={`max-width: 100px`}>
-                                    {slide.label}
-                                    <Arrow />
-                                </Button>
-                            </HeroContent>
-                        </HeroSlider>
-                    </HeroSlide>
-                ))}
+                {slides.map((slide, index) => {
+                    return (
+                        <HeroSlide key={index}>
+                            {index === current && (
+                                <HeroSlider>
+                                    <HeroImage src={slide.image} alt={slide.alt} />
+                                    <HeroContent>
+                                        <h1>{slide.title}</h1>
+                                        <p>{slide.location}</p>
+                                        <Button to={slide.path} primary="true" css={`max-width: 100px`}>
+                                            {slide.label}
+                                            <Arrow />
+                                        </Button>
+                                    </HeroContent>
+                                </HeroSlider>
+                            )}
+                        </HeroSlide>
+                    )
+                })}
                 <SliderButtons>
-                    <PreviousArrow />
-                    <NextArrow />
+                    <PreviousArrow onClick={previousSlide} />
+                    <NextArrow onClick={nextSlide} />
                 </SliderButtons>
             </HeroWrapper>
         </HeroSection>
