@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled, { css } from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { menuData } from '../data/MenuData';
@@ -9,6 +9,7 @@ import { FaBars } from 'react-icons/fa'
 
 
 const Nav = styled.nav`
+    background: ${({scrollNav}) => (scrollNav ? '#000' : 'transparent')} ;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -16,7 +17,6 @@ const Nav = styled.nav`
     z-index: 100;
     position: fixed;
     width: 100%;
-    /* background: #00ffff; */
 `
 const NavLink = css`
     color: #fff;
@@ -75,8 +75,21 @@ const NavBtn = styled.div`
 `
 
 const Navbar = ({toggle}) => {
+    const [scrollNav, setScrollNav] = useState(false);
+
+    const changeNav = () =>{
+        if(window.scrollY >= 80){
+            setScrollNav(true)
+        } else {
+            setScrollNav(false)
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener('scroll', changeNav )
+    },[])
     return (
-        <Nav>
+        <Nav scrollNav={scrollNav}>
             <Logo to="/">ADM</Logo>
             <MenuBars onClick={toggle}/>
             <NavMenu >
